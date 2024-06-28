@@ -4,8 +4,8 @@ databaseChangeLog:
       author: liquibase-demo-service
       preConditions:
         - onFail: MARK_RAN
-          not:
-            tableExists:
+        - not:
+           - tableExists:
               tableName: user_details
       changes:
         - createTable:

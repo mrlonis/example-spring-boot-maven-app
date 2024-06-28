@@ -2,15 +2,15 @@
 <databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
-  <changeSet author="liquibase-docs" id="loadUpdateData-example" context="!prod">
-    <loadUpdateData
-        encoding="UTF-8"
-        file="db/data/users.csv"
-        onlyUpdate="false"
-        primaryKey="id"
-        quotchar="'"
-        separator=","
-        tableName="user_details">
-    </loadUpdateData>
+  <changeSet author="liquibase-docs"
+             id="loadUpdateData-example"
+             context="!prod">
+    <loadUpdateData encoding="UTF-8"
+                    file="db/data/users.csv"
+                    onlyUpdate="false"
+                    primaryKey="id"
+                    quotchar="'"
+                    separator=","
+                    tableName="user_details" />
   </changeSet>
 </databaseChangeLog>
