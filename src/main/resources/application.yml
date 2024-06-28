@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: example-spring-boot-maven-app
+  liquibase:
+    parameters:
+      textColumnType: VARCHAR(255)
