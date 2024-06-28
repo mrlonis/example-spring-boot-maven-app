@@ -15,6 +15,8 @@ target/
 
 ### IntelliJ IDEA ###
 .idea/**
+!.idea/codeStyles
+!.idea/codeStyles/**
 !.idea/runConfigurations
 !.idea/runConfigurations/**
 *.iws
@@ -33,5 +35,6 @@ build/
 
 ### VS Code ###
 .vscode/**
+!.vscode/intellij-java-formatter.xml
 !.vscode/java-formatter.xml
 !.vscode/settings.json
