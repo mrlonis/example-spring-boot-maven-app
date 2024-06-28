@@ -1,4 +1,4 @@
-package com.mrlonis.example.example_spring_boot_maven_app;
+package com.mrlonis.example;
 
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
