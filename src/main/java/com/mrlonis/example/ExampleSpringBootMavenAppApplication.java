@@ -9,5 +9,4 @@ public class ExampleSpringBootMavenAppApplication {
     public static void main(String[] args) {
         SpringApplication.run(ExampleSpringBootMavenAppApplication.class, args);
     }
-
 }
