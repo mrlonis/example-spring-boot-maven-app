@@ -177,7 +177,7 @@
             <palantirJavaFormat>
               <version>2.47.0</version>
               <style>PALANTIR</style>
-              <formatJavadoc>false</formatJavadoc>
+              <formatJavadoc>true</formatJavadoc>
             </palantirJavaFormat>
             <formatAnnotations/>
             <importOrder/>
