@@ -17,6 +17,7 @@
     <jackson.version>2.17.1</jackson.version>
     <java.version>21</java.version>
     <sortpom-maven-plugin.version>4.0.0</sortpom-maven-plugin.version>
+    <spotless.version>2.43.0</spotless.version>
     <spring-cloud.version>2023.0.2</spring-cloud.version>
     <versions-maven-plugin.version>2.16.2</versions-maven-plugin.version>
     <xmlunit-core.version>2.10.0</xmlunit-core.version>
@@ -150,6 +151,44 @@
   </dependencies>
   <build>
     <plugins>
+      <plugin>
+        <groupId>com.diffplug.spotless</groupId>
+        <artifactId>spotless-maven-plugin</artifactId>
+        <version>${spotless.version}</version>
+        <configuration>
+          <formats>
+            <format>
+              <includes> 
+                <include>.gitattributes</include>
+                <include>.gitignore</include>
+              </includes>
+              <trimTrailingWhitespace/>
+              <endWithNewline/>
+            </format>
+          </formats>
+          <java>
+            <cleanthat>
+              <version>2.20</version>
+              <sourceJdk>${java.version}</sourceJdk>
+              <mutators>
+                <mutator>SafeAndConsensual</mutator>
+                <mutator>SafeButNotConsensual</mutator>
+              </mutators>
+            </cleanthat>
+            <palantirJavaFormat>
+              <version>2.47.0</version>
+              <style>PALANTIR</style>
+              <formatJavadoc>false</formatJavadoc>
+            </palantirJavaFormat>
+            <formatAnnotations />
+            <importOrder />
+            <removeUnusedImports />
+            <licenseHeader>
+              <content/>
+            </licenseHeader>
+          </java>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>com.github.ekryd.sortpom</groupId>
         <artifactId>sortpom-maven-plugin</artifactId>
