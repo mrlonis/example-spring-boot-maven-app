@@ -5,8 +5,8 @@ databaseChangeLog:
       preConditions:
         - onFail: MARK_RAN
         - not:
-           - tableExists:
-              tableName: user_details
+            - tableExists:
+                tableName: user_details
       changes:
         - createTable:
             columns:
@@ -22,13 +22,13 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                   name: username
-                  type: ${textColumnType}
+                  type: "${textColumnType}"
               - column:
                   constraints:
                     nullable: false
                   name: first_name
-                  type: ${textColumnType}
+                  type: "${textColumnType}"
               - column:
                   name: last_name
-                  type: ${textColumnType}
+                  type: "${textColumnType}"
             tableName: user_details

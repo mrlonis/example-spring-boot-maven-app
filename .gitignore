@@ -38,3 +38,4 @@ build/
 !.vscode/intellij-java-formatter.xml
 !.vscode/java-formatter.xml
 !.vscode/settings.json
+.DS_Store

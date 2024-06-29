@@ -183,6 +183,59 @@
             <importOrder/>
             <removeUnusedImports/>
           </java>
+          <pom>
+            <includes>
+              <include>pom.xml</include>
+            </includes>
+            <sortPom>
+              <expandEmptyElements>false</expandEmptyElements>
+              <lineSeparator>\n</lineSeparator>
+              <keepBlankLines>false</keepBlankLines>
+              <sortDependencies>scope,groupId,artifactId</sortDependencies>
+              <sortDependencyExclusions>groupId,artifactId</sortDependencyExclusions>
+              <sortDependencyManagement>groupId,artifactId</sortDependencyManagement>
+              <sortPlugins>groupId,artifactId</sortPlugins>
+              <sortProperties>true</sortProperties>
+            </sortPom>
+          </pom>
+          <markdown>
+            <includes>
+              <include>README.md</include>
+            </includes>
+            <flexmark/>
+          </markdown>
+          <json>
+            <includes>
+              <include>.vscode/**/*.json</include>
+              <include>src/**/*.json</include>
+            </includes>
+            <gson>
+              <indentSpaces>2</indentSpaces>
+              <sortByKeys>true</sortByKeys>
+              <escapeHtml>false</escapeHtml>
+              <version>2.11.0</version>
+            </gson>
+          </json>
+          <yaml>
+            <includes>
+              <include>src/**/*.yaml</include>
+              <include>src/**/*.yml</include>
+              <include>compose.yml</include>
+            </includes>
+            <jackson>
+              <version>${jackson.version}</version>
+              <features>
+                <INDENT_OUTPUT>true</INDENT_OUTPUT>
+                <ORDER_MAP_ENTRIES_BY_KEYS>false</ORDER_MAP_ENTRIES_BY_KEYS>
+              </features>
+              <yamlFeatures>
+                <WRITE_DOC_START_MARKER>false</WRITE_DOC_START_MARKER>
+                <MINIMIZE_QUOTES>true</MINIMIZE_QUOTES>
+                <INDENT_ARRAYS>true</INDENT_ARRAYS>
+                <INDENT_ARRAYS_WITH_INDICATOR>true</INDENT_ARRAYS_WITH_INDICATOR>
+              </yamlFeatures>
+            </jackson>
+          </yaml>
           <upToDateChecking>
             <enabled>true</enabled>
           </upToDateChecking>
@@ -205,6 +258,8 @@
           <lineSeparator>\n</lineSeparator>
           <keepBlankLines>false</keepBlankLines>
           <sortDependencies>scope,groupId,artifactId</sortDependencies>
+          <sortDependencyExclusions>groupId,artifactId</sortDependencyExclusions>
+          <sortDependencyManagement>groupId,artifactId</sortDependencyManagement>
           <sortPlugins>groupId,artifactId</sortPlugins>
           <sortProperties>true</sortProperties>
         </configuration>
