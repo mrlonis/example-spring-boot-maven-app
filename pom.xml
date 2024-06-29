@@ -158,7 +158,7 @@
         <configuration>
           <formats>
             <format>
-              <includes> 
+              <includes>
                 <include>.gitattributes</include>
                 <include>.gitignore</include>
               </includes>
@@ -169,7 +169,6 @@
           <java>
             <cleanthat>
               <version>2.20</version>
-              <sourceJdk>${java.version}</sourceJdk>
               <mutators>
                 <mutator>SafeAndConsensual</mutator>
                 <mutator>SafeButNotConsensual</mutator>
@@ -180,14 +179,18 @@
               <style>PALANTIR</style>
               <formatJavadoc>false</formatJavadoc>
             </palantirJavaFormat>
-            <formatAnnotations />
-            <importOrder />
-            <removeUnusedImports />
-            <licenseHeader>
-              <content/>
-            </licenseHeader>
+            <formatAnnotations/>
+            <importOrder/>
+            <removeUnusedImports/>
           </java>
         </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <groupId>com.github.ekryd.sortpom</groupId>
