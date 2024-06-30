@@ -15,8 +15,6 @@ target/
 
 ### IntelliJ IDEA ###
 .idea/**
-!.idea/codeStyles
-!.idea/codeStyles/**
 !.idea/runConfigurations
 !.idea/runConfigurations/**
 *.iws
