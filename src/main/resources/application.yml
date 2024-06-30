@@ -4,3 +4,8 @@ spring:
   liquibase:
     parameters:
       textColumnType: VARCHAR(255)
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: true
