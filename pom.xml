@@ -14,12 +14,13 @@
   <description>Example project for Spring Boot 3.3.1 with Java 21</description>
   <properties>
     <commons-compress.version>1.26.2</commons-compress.version>
+    <gson.version>2.11.0</gson.version>
     <jackson.version>2.17.1</jackson.version>
     <java.version>21</java.version>
     <sortpom-maven-plugin.version>4.0.0</sortpom-maven-plugin.version>
     <spotless.version>2.43.0</spotless.version>
     <spring-cloud.version>2023.0.2</spring-cloud.version>
-    <versions-maven-plugin.version>2.16.2</versions-maven-plugin.version>
+    <versions-maven-plugin.version>2.17.0</versions-maven-plugin.version>
     <xmlunit-core.version>2.10.0</xmlunit-core.version>
   </properties>
   <dependencyManagement>
@@ -165,6 +166,41 @@
               <trimTrailingWhitespace/>
               <endWithNewline/>
             </format>
+            <format>
+              <includes>
+                <include>.vscode/**/*.json</include>
+                <include>src/**/*.json</include>
+                <include>src/**/*.yaml</include>
+                <include>src/**/*.yml</include>
+                <include>compose.yml</include>
+                <include>.mvn/**/*.xml</include>
+                <include>src/**/*.xml</include>
+              </includes>
+              <prettier>
+                <npmInstallCache>true</npmInstallCache>
+                <devDependencyProperties>
+                  <property>
+                    <name>prettier</name>
+                    <value>3.3.2</value>
+                  </property>
+                  <property>
+                    <name>@prettier/plugin-xml</name>
+                    <!-- this could not be written in the simpler to write 'devDependencies' element. -->
+                    <value>0.10.0</value>
+                  </property>
+                </devDependencyProperties>
+                <config>
+                  <printWidth>120</printWidth>
+                  <xmlSelfClosingSpace>false</xmlSelfClosingSpace>
+                  <xmlSortAttributesByKey>true</xmlSortAttributesByKey>
+                  <xmlWhitespaceSensitivity>ignore</xmlWhitespaceSensitivity>
+                  <!-- Prettier v3 Only - Comma Delimited -->
+                  <plugins>@prettier/plugin-xml</plugins>
+                </config>
+              </prettier>
+              <trimTrailingWhitespace/>
+              <endWithNewline/>
+            </format>
           </formats>
           <java>
             <cleanthat>
@@ -182,6 +218,8 @@
             <formatAnnotations/>
             <importOrder/>
             <removeUnusedImports/>
+            <trimTrailingWhitespace/>
+            <endWithNewline/>
           </java>
           <pom>
             <includes>
@@ -197,45 +235,17 @@
               <sortPlugins>groupId,artifactId</sortPlugins>
               <sortProperties>true</sortProperties>
             </sortPom>
+            <trimTrailingWhitespace/>
+            <endWithNewline/>
           </pom>
           <markdown>
             <includes>
               <include>README.md</include>
             </includes>
             <flexmark/>
+            <trimTrailingWhitespace/>
+            <endWithNewline/>
           </markdown>
-          <json>
-            <includes>
-              <include>.vscode/**/*.json</include>
-              <include>src/**/*.json</include>
-            </includes>
-            <gson>
-              <indentSpaces>2</indentSpaces>
-              <sortByKeys>true</sortByKeys>
-              <escapeHtml>false</escapeHtml>
-              <version>2.11.0</version>
-            </gson>
-          </json>
-          <yaml>
-            <includes>
-              <include>src/**/*.yaml</include>
-              <include>src/**/*.yml</include>
-              <include>compose.yml</include>
-            </includes>
-            <jackson>
-              <version>${jackson.version}</version>
-              <features>
-                <INDENT_OUTPUT>true</INDENT_OUTPUT>
-                <ORDER_MAP_ENTRIES_BY_KEYS>false</ORDER_MAP_ENTRIES_BY_KEYS>
-              </features>
-              <yamlFeatures>
-                <WRITE_DOC_START_MARKER>false</WRITE_DOC_START_MARKER>
-                <MINIMIZE_QUOTES>true</MINIMIZE_QUOTES>
-                <INDENT_ARRAYS>true</INDENT_ARRAYS>
-                <INDENT_ARRAYS_WITH_INDICATOR>true</INDENT_ARRAYS_WITH_INDICATOR>
-              </yamlFeatures>
-            </jackson>
-          </yaml>
           <upToDateChecking>
             <enabled>true</enabled>
           </upToDateChecking>
@@ -312,7 +322,7 @@
             <configuration>
               <rules>
                 <requireMavenVersion>
-                  <version>3.8</version>
+                  <version>3.9</version>
                 </requireMavenVersion>
               </rules>
             </configuration>
@@ -330,6 +340,24 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>versions-maven-plugin</artifactId>
         <version>${versions-maven-plugin.version}</version>
+        <configuration>
+          <ruleSet>
+            <ignoreVersions>
+              <ignoreVersion>
+                <type>regex</type>
+                <version>(.+-SNAPSHOT|.+-M\d)</version>
+              </ignoreVersion>
+              <ignoreVersion>
+                <type>regex</type>
+                <version>.+(alpha|beta).*</version>
+              </ignoreVersion>
+              <ignoreVersion>
+                <type>regex</type>
+                <version>.+BETA.*</version>
+              </ignoreVersion>
+            </ignoreVersions>
+          </ruleSet>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.springframework.boot</groupId>
