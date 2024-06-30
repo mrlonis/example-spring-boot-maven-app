@@ -33,7 +33,7 @@ build/
 
 ### VS Code ###
 .vscode/**
-!.vscode/intellij-java-formatter.xml
-!.vscode/java-formatter.xml
 !.vscode/settings.json
+
+### Mac-OS ###
 .DS_Store
