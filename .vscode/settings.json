@@ -1,9 +1,4 @@
 {
-  "[java]": {
-    "editor.detectIndentation": false,
-    "editor.insertSpaces": true
-  },
-  "editor.formatOnSave": true,
   "java.compile.nullAnalysis.mode": "automatic",
   "java.configuration.updateBuildConfiguration": "automatic"
 }
