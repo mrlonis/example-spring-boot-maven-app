@@ -1,14 +1,5 @@
-#!/bin/sh
 echo '[git hook] executing spotless:apply to format code before commit'
-
-# Run the spotless:apply with the maven wrapper
-mvn spotless:apply
-
-# Store the last exit code in a variable
+./mvnw spotless:apply
 RESULT=$?
-
-# Stage formatting changes
 git add -u
-
-# Return the './mvnw spotless:apply' exit code
 exit $RESULT
