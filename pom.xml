@@ -13,10 +13,13 @@
   <name>example-spring-boot-maven-app</name>
   <description>Example project for Spring Boot 3.3.1 with Java 21</description>
   <properties>
+    <cleanthat.vesion>2.20</cleanthat.vesion>
     <commons-compress.version>1.26.2</commons-compress.version>
+    <git-build-hook-maven-plugin.version>3.5.0</git-build-hook-maven-plugin.version>
     <gson.version>2.11.0</gson.version>
     <jackson.version>2.17.1</jackson.version>
     <java.version>21</java.version>
+    <palantir-java-format.version>2.47.0</palantir-java-format.version>
     <sortpom-maven-plugin.version>4.0.0</sortpom-maven-plugin.version>
     <spotless.version>2.43.0</spotless.version>
     <spring-cloud.version>2023.0.2</spring-cloud.version>
@@ -31,6 +34,16 @@
         <version>${jackson.version}</version>
         <type>pom</type>
         <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.palantir.javaformat</groupId>
+        <artifactId>palantir-java-format</artifactId>
+        <version>2${palantir-java-format.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.github.solven-eu.cleanthat</groupId>
+        <artifactId>spotless</artifactId>
+        <version>${cleanthat.version}</version>
       </dependency>
       <dependency>
         <groupId>org.springframework.cloud</groupId>
@@ -162,7 +175,6 @@
               <includes>
                 <include>.gitattributes</include>
                 <include>.gitignore</include>
-                <include>.prettierc</include>
               </includes>
               <trimTrailingWhitespace/>
               <endWithNewline/>
@@ -176,6 +188,7 @@
                 <include>compose.yml</include>
                 <include>.mvn/**/*.xml</include>
                 <include>src/**/*.xml</include>
+                <include>.prettierrc</include>
               </includes>
               <prettier>
                 <npmInstallCache>true</npmInstallCache>
@@ -204,21 +217,25 @@
             </format>
           </formats>
           <java>
+            <includes>
+              <include>src/main/java/**/*.java</include>
+              <include>src/test/java/**/*.java</include>
+            </includes>
             <cleanthat>
-              <version>2.20</version>
+              <version>${cleanthat.vesion}</version>
               <mutators>
                 <mutator>SafeAndConsensual</mutator>
                 <mutator>SafeButNotConsensual</mutator>
               </mutators>
             </cleanthat>
             <palantirJavaFormat>
-              <version>2.47.0</version>
+              <version>${palantir-java-format.version}</version>
               <style>PALANTIR</style>
               <formatJavadoc>true</formatJavadoc>
             </palantirJavaFormat>
             <formatAnnotations/>
-            <importOrder/>
             <removeUnusedImports/>
+            <importOrder/>
             <trimTrailingWhitespace/>
             <endWithNewline/>
           </java>
@@ -241,8 +258,11 @@
           </pom>
           <markdown>
             <includes>
-              <include>README.md</include>
+              <include>**/*.md</include>
             </includes>
+            <excludes>
+              <exclude>target/**/*.md</exclude>
+            </excludes>
             <flexmark/>
             <trimTrailingWhitespace/>
             <endWithNewline/>
@@ -285,7 +305,7 @@
       <plugin>
         <groupId>com.rudikershaw.gitbuildhook</groupId>
         <artifactId>git-build-hook-maven-plugin</artifactId>
-        <version>3.5.0</version>
+        <version>${git-build-hook-maven-plugin.version}</version>
         <configuration>
           <installHooks>
             <pre-commit>.hooks/pre-commit</pre-commit>
