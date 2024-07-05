@@ -13,8 +13,8 @@ spring:
       client:
         registration:
           github:
-            clientId: github-client-id
-            clientSecret: github-client-secret
+            clientId: client_id # https://github.com/mrlonis/example-spring-boot-maven-app/settings/secrets/actions
+            clientSecret: client_secret # https://github.com/mrlonis/example-spring-boot-maven-app/settings/secrets/actions
 management:
   datadog:
     metrics:
