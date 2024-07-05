@@ -5,11 +5,12 @@ echo '[git hook] executing spotless:apply to format code before commit'
 git stash -q --keep-index
 
 # Run spotless:apply
+# We pass in ratchetFrom here to ensure that we only format the files that have changed since the last commit
 if command -v mvn > /dev/null 2>&1
 then
-    mvn spotless:apply -DratchetFrom=origin/master
+    mvn spotless:apply -DratchetFrom=HEAD
 else
-  ./mvnw spotless:apply -DratchetFrom=origin/master
+  ./mvnw spotless:apply -DratchetFrom=HEAD
 fi
 
 # Store the last exit code in a variable
