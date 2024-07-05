@@ -321,12 +321,14 @@
         <configuration>
           <compilerArgs>
             <arg>-Xlint:unchecked</arg>
+            <!-- Only needed for Java 21+ -->
             <arg>-proc:full</arg>
           </compilerArgs>
           <showDeprecation>true</showDeprecation>
           <showWarnings>true</showWarnings>
         </configuration>
       </plugin>
+      <!-- Only needed for mvn versions:display-plugin-updates -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
@@ -346,6 +348,7 @@
           </execution>
         </executions>
       </plugin>
+      <!-- Only needed for Java 21+ -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
