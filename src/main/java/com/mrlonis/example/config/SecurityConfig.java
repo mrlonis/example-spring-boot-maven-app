@@ -13,7 +13,18 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(auth -> auth.requestMatchers("/", "/error", "/webjars/**")
+        http.authorizeHttpRequests(auth -> auth.requestMatchers(
+                                "/",
+                                "/error",
+                                "/webjars/**",
+                                "/android-chrome-192x192.png",
+                                "/android-chrome-512x512.png",
+                                "/apple-touch-icon.png",
+                                "/favicon.ico",
+                                "/favicon-16x16.png",
+                                "/favicon-32x32.png",
+                                "/index.html",
+                                "/site.webmanifest")
                         .permitAll()
                         .anyRequest()
                         .authenticated())

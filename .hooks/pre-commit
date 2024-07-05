@@ -1,12 +1,15 @@
 #!/bin/sh
 echo '[git hook] executing spotless:apply to format code before commit'
 
+# Stash any unstaged changes
+git stash -q --keep-index
+
 # Run spotless:apply
 if command -v mvn > /dev/null 2>&1
 then
-    mvn spotless:apply
+    mvn spotless:apply -DratchetFrom=origin/master
 else
-  ./mvnw spotless:apply
+  ./mvnw spotless:apply -DratchetFrom=origin/master
 fi
 
 # Store the last exit code in a variable
@@ -14,6 +17,9 @@ RESULT=$?
 
 # Stage formatting changes
 git add -u
+
+# Un-stash the stashed changes
+git stash pop -q
 
 # Return the 'spotless:apply' exit code
 exit $RESULT
