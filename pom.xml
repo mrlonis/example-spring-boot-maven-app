@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.4.2</version>
+    <version>3.4.3</version>
     <relativePath/>
   </parent>
   <groupId>com.mrlonis.example</groupId>
@@ -17,13 +17,13 @@
     <cleanthat.vesion>2.20</cleanthat.vesion>
     <commons-compress.version>1.27.1</commons-compress.version>
     <git-build-hook-maven-plugin.version>3.5.0</git-build-hook-maven-plugin.version>
-    <jackson-bom.version>2.18.2</jackson-bom.version>
+    <jackson-bom.version>2.18.3</jackson-bom.version>
     <jacoco-maven-plugin.version>0.8.12</jacoco-maven-plugin.version>
     <java.version>21</java.version>
     <jquery.version>3.7.1</jquery.version>
     <js-cookie.version>3.0.1</js-cookie.version>
-    <palantir-java-format.version>2.52.0</palantir-java-format.version>
-    <spotless.version>2.44.2</spotless.version>
+    <palantir-java-format.version>2.55.0</palantir-java-format.version>
+    <spotless.version>2.44.3</spotless.version>
     <spring-cloud.version>2024.0.0</spring-cloud.version>
     <versions-maven-plugin.version>2.18.0</versions-maven-plugin.version>
     <xmlunit2.version>2.10.0</xmlunit2.version>
