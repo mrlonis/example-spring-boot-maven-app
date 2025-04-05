@@ -326,28 +326,11 @@
         </executions>
       </plugin>
       <plugin>
-        <groupId>com.rudikershaw.gitbuildhook</groupId>
-        <artifactId>git-build-hook-maven-plugin</artifactId>
-        <version>${git-build-hook-maven-plugin.version}</version>
-        <configuration>
-          <installHooks>
-            <pre-commit>.hooks/pre-commit</pre-commit>
-          </installHooks>
-        </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>install</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
           <compilerArgs>
-            <arg>-Xlint:unchecked</arg>
+            <arg>-Xlint:all</arg>
             <!-- Only needed for Java 21+ -->
             <arg>-proc:full</arg>
           </compilerArgs>
