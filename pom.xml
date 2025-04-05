@@ -38,6 +38,13 @@
         <scope>import</scope>
       </dependency>
       <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
         <groupId>com.palantir.javaformat</groupId>
         <artifactId>palantir-java-format</artifactId>
         <version>${palantir-java-format.version}</version>
@@ -51,13 +58,6 @@
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-compress</artifactId>
         <version>${commons-compress.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-dependencies</artifactId>
-        <version>${spring-cloud.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -187,11 +187,18 @@
           <formats>
             <format>
               <includes>
-                <include>.hooks/pre-commit</include>
                 <include>.mvn/wrapper/maven-wrapper.properties</include>
                 <include>.gitattributes</include>
                 <include>.gitignore</include>
+                <include>.gitmodules</include>
+                <include>lombok.config</include>
                 <include>mvnw</include>
+              </includes>
+              <trimTrailingWhitespace/>
+              <endWithNewline/>
+            </format>
+            <format>
+              <includes>
                 <include>mvnw.cmd</include>
               </includes>
               <trimTrailingWhitespace/>
@@ -209,26 +216,25 @@
                 <include>src/**/*.yml</include>
                 <include>.prettierrc</include>
                 <include>compose.yml</include>
+                <include>compose.yaml</include>
               </includes>
               <prettier>
                 <npmInstallCache>true</npmInstallCache>
                 <devDependencyProperties>
                   <property>
                     <name>prettier</name>
-                    <value>3.3.2</value>
+                    <value>^3</value>
                   </property>
                   <property>
                     <name>@prettier/plugin-xml</name>
-                    <!-- this could not be written in the simpler to write 'devDependencies' element due to the package name starting with @. -->
-                    <value>3.4.1</value>
+                    <value>^3</value>
                   </property>
                 </devDependencyProperties>
                 <config>
                   <printWidth>120</printWidth>
                   <xmlSelfClosingSpace>false</xmlSelfClosingSpace>
                   <xmlSortAttributesByKey>true</xmlSortAttributesByKey>
-                  <xmlWhitespaceSensitivity>ignore</xmlWhitespaceSensitivity>
-                  <!-- Prettier v3 Only - Comma Delimited -->
+                  <xmlWhitespaceSensitivity>strict</xmlWhitespaceSensitivity>
                   <plugins>@prettier/plugin-xml</plugins>
                 </config>
               </prettier>
@@ -242,7 +248,6 @@
               <include>src/test/java/**/*.java</include>
             </includes>
             <cleanthat>
-              <!-- Version Optional -->
               <version>${cleanthat.vesion}</version>
               <mutators>
                 <mutator>SafeAndConsensual</mutator>
@@ -250,7 +255,6 @@
               </mutators>
             </cleanthat>
             <palantirJavaFormat>
-              <!-- Version Optional -->
               <version>${palantir-java-format.version}</version>
               <style>PALANTIR</style>
               <formatJavadoc>true</formatJavadoc>
@@ -271,7 +275,7 @@
               <keepBlankLines>false</keepBlankLines>
               <sortDependencies>scope,groupId,artifactId</sortDependencies>
               <sortDependencyExclusions>groupId,artifactId</sortDependencyExclusions>
-              <sortDependencyManagement>groupId,artifactId</sortDependencyManagement>
+              <sortDependencyManagement>scope,groupId,artifactId</sortDependencyManagement>
               <sortPlugins>groupId,artifactId</sortPlugins>
               <sortProperties>true</sortProperties>
             </sortPom>
@@ -283,12 +287,35 @@
               <include>**/*.md</include>
             </includes>
             <excludes>
+              <exclude>.hooks/**/*.md</exclude>
               <exclude>target/**/*.md</exclude>
             </excludes>
             <flexmark/>
             <trimTrailingWhitespace/>
             <endWithNewline/>
           </markdown>
+          <sql>
+            <includes>
+              <include>src/**/*.sql</include>
+            </includes>
+            <prettier>
+              <npmInstallCache>true</npmInstallCache>
+              <devDependencyProperties>
+                <property>
+                  <name>prettier</name>
+                  <value>^3</value>
+                </property>
+                <property>
+                  <name>prettier-plugin-sql</name>
+                  <value>~0.18</value>
+                </property>
+              </devDependencyProperties>
+              <config>
+                <printWidth>120</printWidth>
+                <plugins>prettier-plugin-sql</plugins>
+              </config>
+            </prettier>
+          </sql>
         </configuration>
         <executions>
           <execution>
