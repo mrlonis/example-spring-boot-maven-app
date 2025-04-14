@@ -13,7 +13,7 @@
   <name>example-spring-boot-maven-app</name>
   <description>Example project for Spring Boot 3.3.1 with Java 21</description>
   <properties>
-    <bootstrap.version>5.3.3</bootstrap.version>
+    <bootstrap.version>5.3.5</bootstrap.version>
     <cleanthat.vesion>2.20</cleanthat.vesion>
     <commons-compress.version>1.27.1</commons-compress.version>
     <exec-maven-plugin.version>3.5.0</exec-maven-plugin.version>
@@ -23,8 +23,8 @@
     <java.version>21</java.version>
     <jquery.version>3.7.1</jquery.version>
     <js-cookie.version>3.0.1</js-cookie.version>
-    <palantir-java-format.version>2.62.0</palantir-java-format.version>
-    <spotless.version>2.44.3</spotless.version>
+    <palantir-java-format.version>2.63.0</palantir-java-format.version>
+    <spotless.version>2.44.4</spotless.version>
     <spring-cloud.version>2024.0.1</spring-cloud.version>
     <versions-maven-plugin.version>2.18.0</versions-maven-plugin.version>
     <xmlunit2.version>2.10.0</xmlunit2.version>
