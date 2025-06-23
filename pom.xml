@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.5.0</version>
+    <version>3.5.3</version>
     <relativePath/>
   </parent>
   <groupId>com.mrlonis.example</groupId>
@@ -13,7 +13,7 @@
   <name>example-spring-boot-maven-app</name>
   <description>Example project for Spring Boot 3.3.1 with Java 21</description>
   <properties>
-    <bootstrap.version>5.3.6</bootstrap.version>
+    <bootstrap.version>5.3.7</bootstrap.version>
     <cleanthat.version>2.22</cleanthat.version>
     <commons-compress.version>1.27.1</commons-compress.version>
     <exec-maven-plugin.version>3.5.1</exec-maven-plugin.version>
