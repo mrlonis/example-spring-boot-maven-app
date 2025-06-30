@@ -23,7 +23,7 @@
     <java.version>21</java.version>
     <jquery.version>3.7.1</jquery.version>
     <js-cookie.version>3.0.1</js-cookie.version>
-    <palantir-java-format.version>2.68.0</palantir-java-format.version>
+    <palantir-java-format.version>2.69.0</palantir-java-format.version>
     <spotless.version>2.44.5</spotless.version>
     <spring-cloud.version>2025.0.0</spring-cloud.version>
     <versions-maven-plugin.version>2.18.0</versions-maven-plugin.version>
