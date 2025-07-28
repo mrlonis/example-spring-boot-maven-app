@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.5.3</version>
+    <version>3.5.4</version>
     <relativePath/>
   </parent>
   <groupId>com.mrlonis.example</groupId>
@@ -24,7 +24,7 @@
     <jquery.version>3.7.1</jquery.version>
     <js-cookie.version>3.0.1</js-cookie.version>
     <palantir-java-format.version>2.72.0</palantir-java-format.version>
-    <spotless.version>2.46.0</spotless.version>
+    <spotless.version>2.46.1</spotless.version>
     <spring-cloud.version>2025.0.0</spring-cloud.version>
     <versions-maven-plugin.version>2.18.0</versions-maven-plugin.version>
     <xmlunit2.version>2.10.0</xmlunit2.version>
