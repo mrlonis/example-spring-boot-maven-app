@@ -19,14 +19,14 @@
     <exec-maven-plugin.version>3.6.4</exec-maven-plugin.version>
     <git-build-hook-maven-plugin.version>3.6.0</git-build-hook-maven-plugin.version>
     <jackson-bom.version>2.22.4</jackson-bom.version>
-    <jacoco-maven-plugin.version>0.8.15</jacoco-maven-plugin.version>
+    <jacoco-maven-plugin.version>0.8.16</jacoco-maven-plugin.version>
     <java.version>21</java.version>
     <jquery.version>4.0.0</jquery.version>
     <js-cookie.version>3.0.1</js-cookie.version>
     <palantir-java-format.version>2.103.0</palantir-java-format.version>
-    <spotless.version>3.10.3</spotless.version>
+    <spotless.version>3.10.4</spotless.version>
     <spring-cloud.version>2025.1.4</spring-cloud.version>
-    <versions-maven-plugin.version>2.22.0</versions-maven-plugin.version>
+    <versions-maven-plugin.version>2.23.0</versions-maven-plugin.version>
     <xmlunit2.version>2.10.0</xmlunit2.version>
   </properties>
   <dependencyManagement>
